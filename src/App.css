@@ -2,15 +2,15 @@
   text-align: center;
 }
 
-.table-header{
-  background-color: #3F51B5;
-  color: white;
-  font-size: 20px; 
-  font-weight: bold; 
-  height: 64px; 
-}
-.table-title {
-  margin-left: 20px;
-  align-items: center;  
+.Header-toobar{
+  display: flex;
+  justify-content: space-between; 
 }
 
+.Edit-text {
+  width: 400px; 
+}
+
+.MuiDialogActions-root {
+  justify-content: unset !important;
+}
