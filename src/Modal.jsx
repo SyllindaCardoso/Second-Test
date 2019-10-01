@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 // import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import './App.css';
+import uuidv1 from 'uuid/v1'; 
 
 
 export default function FormDialog(props) {
@@ -23,15 +24,36 @@ export default function FormDialog(props) {
     const[createdValue, setCreatedValue] = React.useState(created);
     const[updatedValue, setUpdatedValue] = React.useState(updated);
 
-    const save = () => {}
+
+    // const uniqueKey = () => {
+    //   if(id === null) {
+    //     return uuidv1(); 
+    //   } else {
+    //     return id; 
+    //   }
+    // }
+    const save = () => {
+      // 2. save data to redux
+      // if conditional can be written in an easer way 
+      props.addFormData({
+        id: id ? id : uuidv1(), // id: id === null ? 'uuid()' : id; 
+        title: titleValue,
+        state: stateValue, 
+        url: urlValue, 
+        created: createdValue,
+        updated: updatedValue
+      })
+      props.handleClose()
+    }
     // 1. validation 
     console.log({
         title: titleValue,
         state: stateValue,
-        url: urlValue
+        url: urlValue,
+        created: createdValue,
+        updated: updatedValue
     })
-    // 2. save data to redux
-
+    
   return (
     <div>
       <Dialog open={true} onClose={props.handleClose} aria-labelledby="form-dialog-title">

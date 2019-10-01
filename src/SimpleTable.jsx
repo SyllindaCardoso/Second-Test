@@ -11,7 +11,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import DeleteIcon from '@material-ui/icons/Delete';
 // rows is not a default export so when you import it 
 // it has to come between curly braces
-import { rows } from './formDataContents';
+// import { rows } from './formDataContents';
 
 
 const useStyles = makeStyles(theme => ({
@@ -25,8 +25,11 @@ const useStyles = makeStyles(theme => ({
         },
 }));
 
-
-function SimpleTable(props) {
+// props and states are objects 
+// you can pass an object props or you can destructure and pass each element
+// if you pass it as props you need to use 'props.rows' and if you 
+// destructure it you write less code 'rows' 
+function SimpleTable({ openModal, setIsAddButton, setFormDataId, rows}) {
     const classes = useStyles();
 
     return (
@@ -41,8 +44,8 @@ function SimpleTable(props) {
                 <TableCell align="right">Created at</TableCell>
                 <TableCell align="right">Updated at</TableCell>
                 <TableCell align="right"><AddIcon color='primary' onClick={() => {
-                    props.openModal();
-                    props.setIsAddButton(true); }} /></TableCell>
+                    openModal();
+                    setIsAddButton(true); }} /></TableCell>
             </TableRow>
         </TableHead>
         <TableBody>
@@ -57,9 +60,9 @@ function SimpleTable(props) {
                 <TableCell align="right">
                     {/* this is the edit button */}
                     <CreateIcon color="secondary" onClick={() => {
-                        props.openModal();
-                        props.setIsAddButton(false);
-                        props.setFormDataId(row.id); 
+                        openModal();
+                        setIsAddButton(false);
+                        setFormDataId(row.id); 
                         }} />
                     <DeleteIcon color="secondary" />
                     </TableCell>
