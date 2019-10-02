@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 // you can pass an object props or you can destructure and pass each element
 // if you pass it as props you need to use 'props.rows' and if you 
 // destructure it you write less code 'rows' 
-function SimpleTable({ openModal, setIsAddButton, setFormDataId, rows}) {
+function SimpleTable({ openModal, setIsAddButton, setFormDataId, rows, deleteFormData }) {
     const classes = useStyles();
 
     return (
@@ -64,7 +64,9 @@ function SimpleTable({ openModal, setIsAddButton, setFormDataId, rows}) {
                         setIsAddButton(false);
                         setFormDataId(row.id); 
                         }} />
-                    <DeleteIcon color="secondary" />
+                    <DeleteIcon color="secondary" onClick={() => {
+                        deleteFormData(row.id); 
+                    }} />
                     </TableCell>
             </TableRow>
             ))}

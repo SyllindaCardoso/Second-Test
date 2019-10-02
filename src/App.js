@@ -69,12 +69,12 @@ function App(props) {
         openModal={handleClickOpen} 
         setIsAddButton={setIsAddButton}
         setFormDataId={setFormDataId}
+        deleteFormData={props.deleteFormData}
         rows={props.formDataRows} />
 
       {open &&(
         <Modal handleClose={handleClose} 
         addFormData={props.addFormData}
-        deleteFormData={props.deleteFormData}
         formData={isAddButton ? emptyDefault : getDataFromId()} />
       )}
       
@@ -95,7 +95,8 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch){
   return bindActionCreators ({
     getFormData,
-    addFormData 
+    addFormData, 
+    deleteFormData
   }, dispatch)
 }
 

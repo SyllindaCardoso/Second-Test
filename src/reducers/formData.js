@@ -36,7 +36,12 @@ export default function formData(state = initialState, action) {
             // const result = state.rows.push(action, payload); 
             // console.log('add_result', result);
         case 'EDIT_FORM_DATA':
-        case 'DELET_FORM_DATA':
+        case 'DELETE_FORM_DATA':
+            let row = state.rows.filter((row) => {
+                return action.payload !== row.id
+            })
+            return {rows: row};
+            
         default:
             return state;
     }
