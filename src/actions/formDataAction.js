@@ -46,3 +46,12 @@ export function deleteFormData(payload) {
         })
     }
 }
+
+export function editFormData(payload) {
+    return function (dispatch) {
+        dispatch({
+            type: 'EDIT_FORM_DATA', 
+            payload: payload
+        })
+    }
+}

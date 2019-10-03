@@ -7,7 +7,7 @@ import { rows } from './formDataContents';
 import { bindActionCreators } from 'redux'; 
 import{ connect } from 'react-redux';
 // redux step: get form datag 
-import { getFormData, addFormData, deleteFormData } from './actions/formDataAction'; 
+import { getFormData, addFormData, deleteFormData, editFormData } from './actions/formDataAction'; 
 
 
 
@@ -75,6 +75,8 @@ function App(props) {
       {open &&(
         <Modal handleClose={handleClose} 
         addFormData={props.addFormData}
+        editFormData={props.editFormData}
+        isAddButton={isAddButton}
         formData={isAddButton ? emptyDefault : getDataFromId()} />
       )}
       
@@ -96,7 +98,8 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators ({
     getFormData,
     addFormData, 
-    deleteFormData
+    deleteFormData,
+    editFormData
   }, dispatch)
 }
 

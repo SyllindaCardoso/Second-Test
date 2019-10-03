@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import AddIcon from '@material-ui/icons/Add';
 import CreateIcon from '@material-ui/icons/Create';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { editFormData } from './actions/formDataAction';
 // rows is not a default export so when you import it 
 // it has to come between curly braces
 // import { rows } from './formDataContents';

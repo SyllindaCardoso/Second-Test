@@ -35,15 +35,26 @@ export default function FormDialog(props) {
     const save = () => {
       // 2. save data to redux
       // if conditional can be written in an easer way 
-      props.addFormData({
-        id: id ? id : uuidv1(), // id: id === null ? 'uuid()' : id; 
-        title: titleValue,
-        state: stateValue, 
-        url: urlValue, 
-        created: createdValue,
-        updated: updatedValue
-      })
-      props.handleClose()
+      if (props.isAddButton) {
+        props.addFormData({
+          id: id ? id : uuidv1(), // id: id === null ? 'uuid()' : id; 
+          title: titleValue,
+          state: stateValue, 
+          url: urlValue, 
+          created: createdValue,
+          updated: updatedValue
+      });
+      } else {
+        props.editFormData({
+          id: id, 
+          title: titleValue,
+          state: stateValue, 
+          url: urlValue, 
+          created: createdValue,
+          updated: updatedValue
+      });
+      }
+      props.handleClose();
     }
     // 1. validation 
     console.log({
