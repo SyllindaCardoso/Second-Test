@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-// import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import './App.css';
 import uuidv1 from 'uuid/v1'; 
@@ -12,11 +11,10 @@ import uuidv1 from 'uuid/v1';
 
 export default function FormDialog(props) {
 
-    // distructure isAddButton = making a shortcut for keys in an object
+    // destructure isAddButton = making a shortcut for keys in an object
     // so you don't have to type props.isAddButton
 
     const { id, title, state, url, created, updated } = props.formData;
-
 
     const[titleValue, setTitleValue] = React.useState(title); 
     const[stateValue, setStateValue] = React.useState(state);
@@ -24,14 +22,6 @@ export default function FormDialog(props) {
     const[createdValue, setCreatedValue] = React.useState(created);
     const[updatedValue, setUpdatedValue] = React.useState(updated);
 
-
-    // const uniqueKey = () => {
-    //   if(id === null) {
-    //     return uuidv1(); 
-    //   } else {
-    //     return id; 
-    //   }
-    // }
     const save = () => {
       // 2. save data to redux
       // if conditional can be written in an easer way 
@@ -74,8 +64,6 @@ export default function FormDialog(props) {
         id="standard-id"
         label="id"
         className='id'
-        // value=''
-        // onChange={handleChange('name')}
         margin="normal"
         fullWidth
       /> <br></br>
@@ -84,8 +72,6 @@ export default function FormDialog(props) {
         required
         id="standard-required"
         label="Title"
-        // defaultValue="title"
-        // className={classes.textField}
         value={titleValue}
         onChange={(e) => setTitleValue(e.target.value)}
         margin="normal"
@@ -95,8 +81,6 @@ export default function FormDialog(props) {
         required
         id="standard-required"
         label="State"
-        // defaultValue="Hello World"
-        // className={classes.textField}
         value={stateValue}
         onChange={(e) => setStateValue(e.target.value)}
         margin="normal"
@@ -105,8 +89,6 @@ export default function FormDialog(props) {
       <TextField
         id="standard-uncontrolled"
         label="Url"
-        // defaultValue="foo"
-        // className={classes.textField}
         value={urlValue}
         onChange={(e) => setUrlValue(e.target.value)}
         margin="normal"
@@ -115,8 +97,6 @@ export default function FormDialog(props) {
       <TextField
         id="standard-uncontrolled"
         label="Created at"
-        // defaultValue="foo"
-        // className={classes.textField}
         value={createdValue}
         onChange={(e) => setCreatedValue(e.target.value)}
         margin="normal"
@@ -125,8 +105,6 @@ export default function FormDialog(props) {
       <TextField
         id="standard-uncontrolled"
         label="Updated at"
-        // defaultValue="foo"
-        // className={classes.textField}
         value={updatedValue}
         onChange={(e) => setUpdatedValue(e.target.value)}
         margin="normal"

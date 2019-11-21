@@ -10,8 +10,6 @@ import{ connect } from 'react-redux';
 import { getFormData, addFormData, deleteFormData, editFormData } from './actions/formDataAction'; 
 
 
-
-
 function App(props) {
   console.log('formData', props.formDataRows); 
   // [1,2] 1= statename, 2= setstate
@@ -59,13 +57,11 @@ function App(props) {
       }
     })  
 
-
   return (
     <div className="App">
       
       <Header />
       <SimpleTable 
-        // formData={this.props.formData}
         openModal={handleClickOpen} 
         setIsAddButton={setIsAddButton}
         setFormDataId={setFormDataId}
